@@ -18,4 +18,4 @@ for (let element of numbers) {
   total = total + element;
 }
 
-console.log(`Сумма елементов массива = ${total}`);
+alert(`Сумма елементов массива = ${total}`);
