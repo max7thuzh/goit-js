@@ -1,0 +1,48 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* MAIN */
+
+.image-gallery {
+  margin: 15px auto;
+  width: 700px;
+}
+
+.fullview {
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.preview {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.preview li {
+  padding: 5px;
+}
+
+.fullview,
+.preview {
+  border: 2px solid grey;
+  box-shadow: 2px 2px 4px rgba(127, 127, 127, 0.7);
+}
+
+.checked {
+  box-shadow: 2px 2px 2px 2px rgba(255, 0, 0, 0.7);
+}
