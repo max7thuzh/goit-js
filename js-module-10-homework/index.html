@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>js-module-10-homework</title>
+</head>
+
+<body>
+
+  <!-- HTML -->
+
+  <div class="container">
+
+    <!-- ================================== -->
+
+    <div class="wrapper">
+      <h2>Get All Users</h2>
+
+      <form class="form js-getAllUsersForm">
+        <button class="button js-getAllUsersButton" type="submit">Get</button>
+      </form>
+
+      <div class="js-getAllUsersResult"></div>
+    </div>
+
+
+    <!-- ================================== -->
+
+    <div class="wrapper">
+      <h2>Get User By Id</h2>
+
+      <form class="form js-getUserByIdForm">
+        <input class="input js-getUserByIdInput" type="text" placeholder="Enter User ID">
+        <button class="button js-getUserByIdButton" type="submit">Get</button>
+      </form>
+
+      <div class="js-getUserByIdResult"></div>
+    </div>
+
+    <!-- ================================== -->
+
+    <div class="wrapper">
+      <h2>Add User</h2>
+
+      <form class="form js-addUserForm">
+        <input class="input js-addUserInputName" type="text" placeholder="Enter User Name">
+        <input class="input js-addUserInputAge" type="text" placeholder="Enter User Age">
+
+        <button class="button js-addUserButton" type="submit">Add</button>
+      </form>
+    </div>
+
+    <!-- ================================== -->
+
+    <div class="wrapper">
+      <h2>Remove User</h2>
+
+      <form class="form js-removeUserForm">
+        <input class="input js-removeUserInputId" type="text" placeholder="Enter User Id">
+
+        <button class="button js-removeUserButton" type="submit">Remove</button>
+      </form>
+    </div>
+
+    <!-- ================================== -->
+
+    <div class="wrapper">
+      <h2>Update User</h2>
+
+      <form class="form js-updateUserForm">
+        <input class="input js-updateUserInputId" type="text" placeholder="Enter User Id">
+        <input class="input js-updateUserInputName" type="text" placeholder="Enter User New Name">
+        <input class="input js-updateUserInputAge" type="text" placeholder="Enter User new Age">
+
+        <button class="button js-updateUserButton" type="submit">Update</button>
+      </form>
+    </div>
+
+    <!-- ================================== -->
+
+  </div>
+
+  <!-- JavaScript -->
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
