@@ -135,6 +135,7 @@ function getMarkup(obj) {
   );
 
   if (userChoiceObj === undefined) {
+    refs.source.innerHTML = "";
     alert("Not Found!");
   } else {
     const cardTemplate = document.querySelector("#card").innerHTML.trim();
