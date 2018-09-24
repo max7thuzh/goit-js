@@ -1,5 +1,8 @@
+/* =========================== */
+
 .list {
   list-style: none;
+  text-align: center;
 }
 
 .key,
@@ -15,3 +18,13 @@
 .value {
   color: rgb(8, 8, 78);
 }
+
+.message {
+  font-size: 36px;
+  font-weight: bold;
+  color: red;
+
+  text-align: center;
+}
+
+/* =========================== */
