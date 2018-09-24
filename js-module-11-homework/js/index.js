@@ -135,14 +135,18 @@ function getMarkup(obj) {
   );
 
   if (userChoiceObj === undefined) {
-    refs.source.innerHTML = "";
-    alert("Not Found!");
+    const messageMarkup = `<p class="message">Not found!</p>`;
+    refs.source.innerHTML = messageMarkup;
+
+    refs.form.reset();
   } else {
     const cardTemplate = document.querySelector("#card").innerHTML.trim();
     const fnHandlebars = Handlebars.compile(cardTemplate);
     const markup = fnHandlebars(userChoiceObj);
 
     refs.source.innerHTML = markup;
+
+    refs.form.reset();
   }
 }
 
