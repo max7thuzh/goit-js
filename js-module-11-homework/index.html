@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>js-module-11-homework</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- HTML -->
+
+  <form class="form js-form">
+    <section>
+      <h2>Screen size</h2>
+      <ul>
+        <li><label><input type="radio" name="size" value="13"> 13"</label></li>
+        <li><label><input type="radio" name="size" value="15"> 15"</label></li>
+        <li><label><input type="radio" name="size" value="17"> 17"</label></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Color</h2>
+      <ul>
+        <li><label><input type="radio" name="color" value="white"> white</label></li>
+        <li><label><input type="radio" name="color" value="gray"> gray</label></li>
+        <li><label><input type="radio" name="color" value="black"> black</label></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Release date</h2>
+      <ul>
+        <li><label><input type="radio" name="release_date" value="2015"> 2015</label></li>
+        <li><label><input type="radio" name="release_date" value="2016"> 2016</label></li>
+        <li><label><input type="radio" name="release_date" value="2017"> 2017</label></li>
+      </ul>
+    </section>
+    <button type="submit">Filter</button>
+    <button type="reset" class="js-reset">Clear</button>
+  </form>
+
+  <div id="root"></div>
+
+  <!--
+    size: 13,
+    color: 'white',
+    price: 28000,
+    release_date: 2015,
+    name: 'Macbook Air White 13"',
+    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    descr: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.'
+   -->
+
+  <template id="card">
+    <ul class="list">
+      <li><span class="key">size: </span><span class="value">{{size}}</span></li>
+      <li><span class="key">color: </span><span class="value">{{color}}</span></li>
+      <li><span class="key">price: </span><span class="value">{{price}}</span></li>
+      <li><span class="key">release date: </span><span class="value">{{release_date}}</span></li>
+      <li><span class="key">name: </span><span class="value">{{name}}</span></li>
+      <li><img src="{{img}}" alt="laptop"></li>
+      <li><span class="key">description: </span><span class="value">{{descr}}</span></li>
+    </ul>
+  </template>
+
+  <!-- JS -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>

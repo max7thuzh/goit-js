@@ -1,0 +1,17 @@
+.list {
+  list-style: none;
+}
+
+.key,
+.value {
+  font-family: sans-serif;
+  font-size: 20px;
+}
+
+.key {
+  color: rgb(105, 9, 9);
+}
+
+.value {
+  color: rgb(8, 8, 78);
+}
