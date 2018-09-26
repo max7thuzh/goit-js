@@ -1,155 +1,130 @@
 "use strict";
 
-// ====================================
-
 const laptops = [
   {
     size: 13,
-    color: 'white',
+    color: "white",
     price: 28000,
     release_date: 2015,
     name: 'Macbook Air White 13"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 13,
-    color: 'gray',
+    color: "gray",
     price: 32000,
     release_date: 2016,
     name: 'Macbook Air Gray 13"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 13,
-    color: 'black',
+    color: "black",
     price: 35000,
     release_date: 2017,
     name: 'Macbook Air Black 13"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 15,
-    color: 'white',
+    color: "white",
     price: 45000,
     release_date: 2015,
     name: 'Macbook Air White 15"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 15,
-    color: 'gray',
+    color: "gray",
     price: 55000,
     release_date: 2016,
     name: 'Macbook Pro Gray 15"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 15,
-    color: 'black',
+    color: "black",
     price: 45000,
     release_date: 2017,
     name: 'Macbook Pro Black 15"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 17,
-    color: 'white',
+    color: "white",
     price: 65000,
     release_date: 2015,
     name: 'Macbook Air White 17"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 17,
-    color: 'gray',
+    color: "gray",
     price: 75000,
     release_date: 2016,
     name: 'Macbook Pro Gray 17"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 17,
-    color: 'black',
+    color: "black",
     price: 80000,
     release_date: 2017,
     name: 'Macbook Pro Black 17"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
-  },
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
+  }
 ];
 
-const refs = {
-  form: document.querySelector(".js-form"),
-  resetButton: document.querySelector(".js-reset"),
-  source: document.querySelector("#root")
-};
+const form = document.querySelector("form");
+const boxes = document.querySelector(".boxes");
+const submit = document.querySelector("button");
+const inputs = document.querySelectorAll("input");
 
-const filter = {};
+submit.addEventListener("click", setFiltered);
 
-// ====================================
+function setFiltered(e) {
+  e.preventDefault();
 
-refs.form.addEventListener("submit", handleFormSubmit);
-refs.resetButton.addEventListener("click", handleResetButtonClick);
+  const props = [...inputs] // делаем массив инпутов из NodeList
+    .filter(e => e.checked) // выбираем из него чекнутые инпуты
+    .map(e => (e.name === "color" ? e.value : +e.value)); // выбираем в массив из инпутов значения полей и по необходимости преобразовываем их тип
 
-// ====================================
+  const selected = laptops
+    .filter(e => props.includes(e.size))
+    .filter(e => props.includes(e.color))
+    .filter(e => props.includes(e.release_date));
 
-function handleFormSubmit(event) {
-  event.preventDefault();
-
-  const input = {
-    size: document.querySelector('input[name="size"]:checked'),
-    color: document.querySelector('input[name="color"]:checked'),
-    release_date: document.querySelector('input[name="release_date"]:checked')
-  };
-
-  filter.size = input.size.value;
-  filter.color = input.color.value;
-  filter.release_date = input.release_date.value;
-
-  getMarkup(filter);
-}
-
-function getMarkup(obj) {
-  const userChoiceObj = laptops.find(
-    element =>
-      element.size == obj.size &&
-      element.color === obj.color &&
-      element.release_date == obj.release_date
-  );
-
-  if (userChoiceObj === undefined) {
-    const messageMarkup = `<p class="message">Not found!</p>`;
-    refs.source.innerHTML = messageMarkup;
-
-    refs.form.reset();
-  } else {
-    const cardTemplate = document.querySelector("#card").innerHTML.trim();
-    const fnHandlebars = Handlebars.compile(cardTemplate);
-    const markup = fnHandlebars(userChoiceObj);
-
-    refs.source.innerHTML = markup;
-
-    refs.form.reset();
+  if (selected.length === 0) {
+    show(laptops);
+    return;
   }
+
+  show(selected);
 }
 
-function handleResetButtonClick() {
-  refs.source.innerHTML = "";
+function show(arr) {
+  const template = document.querySelector("#card").innerHTML.trim();
+  const fnHandlebars = Handlebars.compile(template);
+  const markup = arr.reduce((acc, element) => acc + fnHandlebars(element), "");
+  boxes.innerHTML = markup;
 }
+
+show(laptops);
